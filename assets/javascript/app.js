@@ -1,0 +1,53 @@
+var triviaQs =
+    [
+    {
+        question: "What is the worlds largest freshwater lake",
+        answer: [ "Lake Victoria","Lake Taganyika", "Lake Superior", "Lake Malawi"],
+        right: "Lake Superior",
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    {
+        question:
+        answer:
+        right:
+    }
+    ]
