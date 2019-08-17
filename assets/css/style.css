@@ -1,0 +1,13 @@
+body{
+    background-image: url(assets/images/tryThis.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+ text-align: center;
+}
+#intro{
+    
+    position: relative;
+    left: 286px;
+    top: 100px;
+    
+}

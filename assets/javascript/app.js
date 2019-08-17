@@ -3,6 +3,8 @@ var answeredRight = 0;
 var answeredWrong = 0;
 var missed = 0;
 var timeLeft = 60;
+var intervalId;
+var userGuess;
 var triviaQs =
     [
         {
@@ -56,20 +58,64 @@ var triviaQs =
             right: 3,
         },
     ];
-function decrement() {
 
-    timeLeft--;
-    $("#timer").text(timeLeft);
 
-    if (timeLeft === 0) {
-       
-        endGame();
-    }
-}
 $(".btn btn-primary btn-lg").on("click", function () {
+
     function startGame() {
-        setInterval(decrement, 1000);
+
+        intervalId = setInterval(decrement, 1000);
+
         $("#intro").hide();
     }
+    function decrement() {
 
+        timeLeft--;
+
+        $("#timer").text(timeLeft);
+
+        if (timeLeft === 0) {
+
+            endGame();
+            stop();
+        }
+    }
+
+    function stop() {
+
+        clearInterval(intervalId);
+    }
+
+    function endGame() {
+        for (var i = 0; i < triviaQs.length; i++) {
+            rightAnswer = triviaQs[i].right;
+            userGuess = $("input[id = radio" + i + "]:checked + lable").text();
+            if (userGuess === rightAnswer) {
+                answeredRight++;
+            } else if (userGuess === "") {
+                missed++;
+            } else if (userGuess !== rightAnswer) {
+                answeredWrong++;
+            }
+        }
+    }
+    function showQs() {
+        var asks = $("#triviaQsBox")
+        for (var i = 0; i < triviaQs.length; i++) {
+
+            asks.appened("<div id = 'qs'>" + triviaQs[i].question + "</div>")
+
+            var answer1 = triviaQs[i].answer[0];
+            var answer2 = triviaQs[i].answer[1];
+            var answer3 = triviaQs[i].answer[2];
+            var answer4 = triviaQs[i].answer[3];
+
+            asks.appened('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"><label class="form-check-label" for="inlineRadio1">' + answer1 + '</label></div>')
+            asks.appened('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2"><label class="form-check-label" for="inlineRadio1">' + answer2 + '</label></div>')
+            asks.appened('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option3"><label class="form-check-label" for="inlineRadio1">' + answer3 + '</label></div>')
+            asks.appened('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option4"><label class="form-check-label" for="inlineRadio1">' + answer4 + '</label></div>')
+        }
+    }
+    startGame();
+    showQs();
 })
