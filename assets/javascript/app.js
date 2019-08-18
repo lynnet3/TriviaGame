@@ -67,6 +67,7 @@ $(document).ready(function () {
             intervalId = setInterval(decrement, 1000);
 
             $("#intro").hide();
+            $("#triviaQsBox").show();
         }
         function decrement() {
 
@@ -78,6 +79,8 @@ $(document).ready(function () {
 
                 endGame();
                 stop();
+                $("#score").show();
+                $("#triviaQsBox").hide();
             }
         }
 
@@ -87,15 +90,16 @@ $(document).ready(function () {
         }
 
         function endGame() {
+
             for (var i = 0; i < triviaQs.length; i++) {
                 rightAnswer = triviaQs[i].right;
-                userGuess = $("input[id = radio" + i + "]:checked + lable").text();
+                userGuess = $("input[id=radio"+i+"]:checked+lable").text();
                 if (userGuess === rightAnswer) {
-                    answeredRight++;
+                    $("#right").text("RIght: " + answeredRight++);
                 } else if (userGuess === "") {
-                    missed++;
+                    $("#missed").text("Missed: " + missed++);
                 } else if (userGuess !== rightAnswer) {
-                    answeredWrong++;
+                    $("#wrong").text("Wrong: " + answeredWrong++) ;
                 }
             }
         }
