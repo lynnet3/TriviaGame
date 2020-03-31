@@ -122,8 +122,8 @@ $(document).ready(function () {
                 asks.appened('<div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option4"><label class="form-check-label" for="inlineRadio1">' + answer4 + '</label></div>')
             }
         }
-
+        startGame();
+        showQs();
     });
-    startGame();
-    showQs();
+    
 })
