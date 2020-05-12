@@ -1,7 +1,6 @@
 # TriviaGame
 
-This ia a JavaScript, jQuery, and HTML trivia game. 
+This is a trivia game to test your knowledge on different subjects such as geography, science, and pop culture.  You are given one minute to answer as many of the ten questions correctly.  At the end of the time, you will be given a score of how many you've gotten correct.
 
-For this game you are given 60 seconds to answer the multiple choice questions and at the end you will be told how many you got right.
-
-Enjoy
+## Programs used:
+JavaScript, jQuery, and HTML
